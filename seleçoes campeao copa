@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Dados das seleções e seus títulos de Copa do Mundo
+data = {
+    "Seleção": ["Brasil", "Alemanha", "Itália", "Argentina", "Uruguai", "França", "Inglaterra", "Espanha"],
+    "Títulos da Copa": [5, 4, 4, 3, 2, 2, 1, 1]
+}
+
+# Criando o DataFrame
+df = pd.DataFrame(data)
+
+# Exibindo as primeiras linhas para verificar os dados
+print(df)
+
+# Gráfico de barras mostrando o número de títulos das seleções
+plt.figure(figsize=(10, 6))
+sns.barplot(x="Seleção", y="Títulos da Copa", data=df, palette="Blues_d")
+
+# Adicionando título e rótulos
+plt.title("Seleções que Mais Venceram a Copa do Mundo")
+plt.xlabel("Seleção")
+plt.ylabel("Títulos da Copa")
+plt.xticks(rotation=45)
+
+# Exibindo o gráfico
+plt.show()
+
+# Estatísticas descritivas para análises
+print("\nEstatísticas descritivas:")
+print(df.describe())
+
+# Seleções com mais de 2 títulos
+selecoes_mais_de_2_titulos = df[df["Títulos da Copa"] > 2]
+print("\nSeleções com mais de 2 Títulos:")
+print(selecoes_mais_de_2_titulos)
